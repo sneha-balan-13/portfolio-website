@@ -54,22 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-  // Dismiss popup on outside click
-  popupContainer.addEventListener('click', (e) => {
-    if (e.target === popupContainer) {
-      popups.forEach(popup => popup.classList.remove('show'));
-      mainContent.style.display = 'block';
-    }
-  });
+
 
   // Tab logic
-  window.showTab = function(tabName) {
+  window.showTab = function(tabName, el) {
     const sections = document.querySelectorAll('.project-section');
     const buttons = document.querySelectorAll('.tab-button');
     sections.forEach(section => section.classList.remove('active'));
     buttons.forEach(btn => btn.classList.remove('active'));
     document.getElementById(tabName).classList.add('active');
-    event.target.classList.add('active');
+    if (el) el.classList.add('active');
   };
 
   // Tile toggle
